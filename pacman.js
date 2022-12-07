@@ -473,7 +473,7 @@ Pacman.User = function (game, map) {
     function drawDead(ctx, amount) { 
 
         var size = map.blockSize, 
-            half = size / 2;
+            half = size / 10;
 
         if (amount >= 1) { 
             return;
@@ -806,7 +806,7 @@ var PACMAN = (function () {
         ctx.font      = "14px BDCartoonShoutRegular";
         var width = ctx.measureText(text).width,
             x     = ((map.width * map.blockSize) - width) / 2;        
-        ctx.fillText(text, x, (map.height * 10) + 8);
+        ctx.fillText(text, x, (map.height * 10) + 40);
     }
 
     function soundDisabled() {
@@ -885,11 +885,11 @@ var PACMAN = (function () {
         for (var i = 0, len = user.getLives(); i < len; i++) {
             ctx.fillStyle = "#FFFF00";
             ctx.beginPath();
-            ctx.moveTo(150 + (25 * i) + map.blockSize / 2,
-                       (topLeft+1) + map.blockSize / 2);
+            ctx.moveTo(500 + (80 * i) + map.blockSize / 2,
+                       (topLeft+1));
             
-            ctx.arc(150 + (25 * i) + map.blockSize / 2,
-                    (topLeft+1) + map.blockSize / 2,
+            ctx.arc(500  + (80 * i) + map.blockSize / 2,
+                    (topLeft+1),
                     map.blockSize / 2, Math.PI * 0.25, Math.PI * 1.75, false);
             ctx.fill();
         }
@@ -902,7 +902,7 @@ var PACMAN = (function () {
         ctx.fillStyle = "#FFFF00";
         ctx.font      = "14px BDCartoonShoutRegular";
         ctx.fillText("Score: " + user.theScore(), 30, textBase);
-        ctx.fillText("Level: " + level, 260, textBase);
+        ctx.fillText("Level: " + level, 1100, textBase);
     }
 
     function redrawBlock(pos) {
